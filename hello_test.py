@@ -1,10 +1,13 @@
 from hello import *
+import pytest
+
+@pytest.fixture
+def setup():
+    hello = Hello("Rohit", 33, ["python", "golang", "python"])
+    return hello
 
 def test_hello():
-    hello = Hello("Rohit", 33, ["python", "golang", "python"])
-    assert "Rohit" == hello.SayHello()
+    assert "Rohit" == setup.SayHello()
 
 def test_list():
-    hello = Hello("Rohit", 33, ["python", "GoLang", "python"])
-
-    assert hello.ReturnList().lower() == "golang"
+    assert setup.ReturnList().lower() == "golang"
