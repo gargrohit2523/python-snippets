@@ -35,8 +35,11 @@ for row in reader:
 figs,ax = mplt.subplots()
 
 #Take last 2 years data from dataset
-ax.plot(dates, highs, color='red')
-ax.plot(dates, lows, color='red')
+ax.plot(dates, highs, color='red', alpha=0.5)
+ax.plot(dates, lows, color='red', alpha=0.5)
+
+#Give shading effect between y values i.e., high and lows for a date
+ax.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 
 ax.set_title("Daily High & Low Tempratures, 2019-2020, Delhi")
 
