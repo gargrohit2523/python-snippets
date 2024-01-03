@@ -1,6 +1,7 @@
 from hello import *
 import pytest
 
+# Specifies that below function is a fixture
 @pytest.fixture
 def setup():
     hello = Hello("Rohit", 33, ["python", "golang", "python"])
