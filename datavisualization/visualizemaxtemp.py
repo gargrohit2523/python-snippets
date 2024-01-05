@@ -19,17 +19,17 @@ for row in reader:
     max_temp = 0
     min_temp = 0
 
+    date = datetime.strptime(row[1], '%Y-%m-%dT%H:%M:%S')
+
     try:
         max_temp = round(float(row[3]))
         min_temp = round(float(row[4]))
     except:
-        pass
-
-    date = datetime.strptime(row[1], '%Y-%m-%dT%H:%M:%S')
-
-    highs.append(max_temp)
-    lows.append(min_temp)
-    dates.append(date)
+        print(f"Missing data for {date}")
+    else:
+        highs.append(max_temp)
+        lows.append(min_temp)
+        dates.append(date)
 
 #mplt.style.use('seaborn')
 figs,ax = mplt.subplots()
